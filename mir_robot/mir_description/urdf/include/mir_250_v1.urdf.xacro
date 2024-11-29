@@ -155,6 +155,11 @@
 
     <link name="${prefix}us_2_frame" />
 
+    <!-- Fixed camera -->
+    <xacro:sensor_d435i parent="${prefix}base_link" name="base_realsense" use_nominal_extrinsics="true">
+      <origin xyz="0.4 0 0.79" rpy="0 0 0"/>
+    </xacro:sensor_d435i>
+
     <!-- wheels -->
     <xacro:actuated_wheel prefix="${prefix}" locationprefix="left" locationright="-1"/>
     <xacro:actuated_wheel prefix="${prefix}" locationprefix="right" locationright="1"/>

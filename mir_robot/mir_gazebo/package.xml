@@ -36,6 +36,7 @@
 
   <export>
     <build_type>ament_cmake</build_type>
-    <gazebo_ros gazebo_model_path="${prefix}/worlds/include"/>
+    <!-- <gazebo_ros gazebo_model_path="${prefix}/worlds/include"/> -->
+    <gazebo_ros gazebo_model_path="/home/pranav/cs5478/gazebo_models_worlds_collection/models"/>
   </export>
 </package>
