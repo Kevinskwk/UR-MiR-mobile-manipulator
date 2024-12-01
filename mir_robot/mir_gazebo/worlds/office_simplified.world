@@ -131,20 +131,20 @@
         </link>
       </model>
       <model name='can_coke'>
-        <pose frame=''>-4.35528 1.31133 0.531795 0 -0 0</pose>
+        <pose frame=''>-2.40305 3.90682 0.699842 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>-4.35528 1.31133 0.531795 0 -0 0</pose>
+          <pose frame=''>-2.40305 3.90682 0.699842 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='link_1'>
+        <!-- <link name='link_1'>
           <pose frame=''>-4.35528 1.31133 0.531795 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
-        </link>
+        </link> -->
       </model>
       <model name='can_fanta'>
         <pose frame=''>-1.80305 3.90682 0.699842 0 -0 0</pose>
@@ -155,28 +155,28 @@
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='link_1'>
+        <!-- <link name='link_1'>
           <pose frame=''>-1.80305 3.90682 0.699842 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
-        </link>
+        </link> -->
       </model>
       <model name='can_pepsi'>
-        <pose frame=''>-2.94981 4.65028 0.698611 0 -0 0</pose>
+        <pose frame=''>-2.10305 3.90682 0.699842 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>-2.94981 4.65028 0.698611 0 -0 0</pose>
+          <pose frame=''>-2.10305 3.90682 0.699842 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='link_1'>
-          <pose frame=''>-2.94981 4.65028 0.698611 0 -0 0</pose>
+        <!-- <link name='link_1'>
+          <pose frame=''>-2.30305 3.90682 0.699842 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
-        </link>
+        </link> -->
       </model>
       <model name='chair_3'>
         <pose frame=''>0.857731 0.76379 0.01446 0 -0 0</pose>
@@ -5157,35 +5157,7 @@
             </script>
           </material>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://can_pepsi/meshes/body.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <link name='link_1'>
-        <visual name='visual'>
+        <visual name='visual2'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
@@ -5208,34 +5180,22 @@
           <transparency>0</transparency>
         </visual>
         <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+          <!-- <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts> -->
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://can_pepsi/meshes/metal.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
+            <cylinder>
+              <radius>0.03</radius>
+              <length>0.1</length>
+            </cylinder>
           </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
         </collision>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
-      <allow_auto_disable>1</allow_auto_disable>
+      <static>0</static>
+      <allow_auto_disable>0</allow_auto_disable>
       <pose frame=''>-3.69459 3.96396 0 0 -0 0</pose>
     </model>
     <model name='bottle_white_wine'>
@@ -5770,35 +5730,7 @@
             </script>
           </material>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://can_coke/meshes/body.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <link name='link_1'>
-        <visual name='visual'>
+        <visual name='visual2'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
@@ -5821,34 +5753,22 @@
           <transparency>0</transparency>
         </visual>
         <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+          <!-- <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts> -->
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://can_coke/meshes/metal.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
+            <cylinder>
+              <radius>0.03</radius>
+              <length>0.1</length>
+            </cylinder>
           </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
         </collision>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
-      <allow_auto_disable>1</allow_auto_disable>
+      <static>0</static>
+      <allow_auto_disable>0</allow_auto_disable>
       <pose frame=''>0.975169 -4.23194 0 0 -0 0</pose>
     </model>
     <model name='can_fanta'>
@@ -5869,35 +5789,7 @@
             </script>
           </material>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://can_fanta/meshes/body.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <link name='link_1'>
-        <visual name='visual'>
+        <visual name='visual2'>
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
@@ -5920,35 +5812,24 @@
           <transparency>0</transparency>
         </visual>
         <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+          <!-- <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts> -->
+          <pose frame=''>0 0 0.05 0 -0 0</pose>
           <geometry>
-            <mesh>
-              <uri>model://can_fanta/meshes/metal.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
+            <cylinder>
+              <radius>0.03</radius>
+              <length>0.1</length>
+            </cylinder>
           </geometry>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
         </collision>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-      <static>1</static>
-      <allow_auto_disable>1</allow_auto_disable>
+      <static>0</static>
+      <allow_auto_disable>0</allow_auto_disable>
       <pose frame=''>-1.70268 3.77005 0 0 -0 0</pose>
     </model>
+    <plugin name="gazebo_link_attacher" filename="/home/pranav/cs5478/ros2_ws/install/ros2_linkattacher/lib/libgazebo_link_attacher.so"/>
   </world>
 </sdf>
