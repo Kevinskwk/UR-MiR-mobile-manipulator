@@ -59,7 +59,7 @@ aluminum peripherial evaluation case.
                         enable_pointCloud="true"
                         unite_imu_method="linear_interpolation"
                         clip_distance="-1.0"
-                        align_depth="false"
+                        align_depth="true"
                         visualize="true"
     />
   </xacro:macro>
