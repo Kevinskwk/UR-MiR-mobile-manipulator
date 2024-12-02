@@ -7,7 +7,7 @@
   <xacro:include filename="$(find mir_description)/urdf/include/wheel.urdf.xacro" />
   <xacro:include filename="$(find mir_description)/urdf/include/caster.urdf.xacro" />
   <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro"/>
-  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro"/> -->
 
   <xacro:property name="deg_to_rad" value="0.017453293" />
 
@@ -154,6 +154,15 @@
     </joint>
 
     <link name="${prefix}us_2_frame" />
+
+    <!-- Fixed camera -->
+    <xacro:sensor_d435i parent="${prefix}base_link" name="mani_realsense" use_nominal_extrinsics="true">
+      <origin xyz="0.25 0 0.85" rpy="0 0.17 0"/>
+    </xacro:sensor_d435i>
+
+    <xacro:sensor_d435i parent="${prefix}base_link" name="navi_realsense" use_nominal_extrinsics="true">
+      <origin xyz="0.4 0 0.6" rpy="0 0.3 0"/>
+    </xacro:sensor_d435i>
 
     <!-- wheels -->
     <xacro:actuated_wheel prefix="${prefix}" locationprefix="left" locationright="-1"/>
@@ -356,20 +365,22 @@
       <origin xyz="0.035 0.05 0.03" rpy="0 ${pi} ${0.5 * pi}" />
     </joint> 
 
-    <xacro:sensor_d435i parent="ur_flange" name="realsense" use_nominal_extrinsics="true">
+    <!-- <xacro:sensor_d435i parent="ur_flange" name="realsense" use_nominal_extrinsics="true">
       <origin xyz="0.02 0 -0.061" rpy="${pi} 0 0"/>
-    </xacro:sensor_d435i>
+    </xacro:sensor_d435i> -->
 
     <!-- <link name="robotiq_coupler">
       <visual>
         <geometry>
           <mesh filename="package://robotiq_description/meshes/robotiq_85_coupler.stl" />
+          <mesh filename="/home/pranav/cs5478/ros2_ws/src/mir_robot/robotiq_description/meshes/robotiq_85_coupler.stl" />
         </geometry>
         <material name="flat_black"/>
       </visual>
       <collision>
         <geometry>
           <mesh filename="package://robotiq_description/meshes/robotiq_85_coupler.stl" />
+          <mesh filename="/home/pranav/cs5478/ros2_ws/src/mir_robot/robotiq_description/meshes/robotiq_85_coupler.stl" />
         </geometry>
       </collision>
       <inertial>
@@ -408,21 +419,59 @@
       </plugin>
     </gazebo> -->
 
+    <!-- <xacro:include filename="$(find robotiq_description)/urdf/ur_to_robotiq_adapter.urdf.xacro" /> -->
+    <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_85_macro.urdf.xacro" />
+
+    <xacro:robotiq_gripper name="RobotiqGripperHardwareInterface" prefix="" parent="ur_tool0" use_fake_hardware="true">
+        <origin xyz="0 0 0.021" rpy="0 0 ${pi}" />
+    </xacro:robotiq_gripper> -->
+
     <!-- Gazebo grasping plugin -->
     <!-- <gazebo>
-      <gripper name="gazebo_gripper">
-        <grasp_check>
-          <attach_steps>2</attach_steps>    
-          <detach_steps>2</detach_steps>    
-          <min_contact_count>3</min_contact_count>
-        </grasp_check>
-        <gripper_link>robotiq_85_left_finger_tip_link</gripper_link>
-        <gripper_link>robotiq_85_right_finger_tip_link</gripper_link>
-        <palm_link>robotiq_85_base_link</palm_link>
-      </gripper>
+      <plugin name="vacuum_gripper_plugin" filename="libgazebo_ros_gripper.so">
+        <gripper name="vacuum_gripper">
+          <gripper_link>vacuum_gripper</gripper_link>
+          <grasp_check>
+            <attach_steps>5</attach_steps>
+            <detach_steps>5</detach_steps>
+            <min_contact_count>1</min_contact_count>
+          </grasp_check>
+        </gripper>
+      </plugin>
     </gazebo> -->
 
+    <link name="vacuum_gripper">
+      <visual>
+        <geometry>
+          <cylinder length="0.1" radius="0.02"/>
+        </geometry>
+        <!-- <material name="blue"/> -->
+      </visual>
+      <!-- <collision>
+        <geometry>
+          <cylinder length="0.1" radius="0.02"/>
+        </geometry>
+      </collision> -->
+      <inertial>
+        <mass value="0.01"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.00001" iyy="0.00001" izz="0.00001" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+    </link>
 
+    <joint name="vacuum_gripper_joint" type="fixed">
+      <parent link="ur_tool0"/>
+      <child link="vacuum_gripper"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ur_ee"/>
+
+    <joint name="ee_joint" type="fixed">
+      <parent link="vacuum_gripper"/>
+      <child link="ur_ee"/>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </joint>
 
   </xacro:macro>
 </robot>

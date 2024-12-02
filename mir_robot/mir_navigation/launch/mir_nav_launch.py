@@ -67,7 +67,7 @@ def generate_launch_description():
     ld.add_action(declare_rviz_config_file_argument)
     ld.add_action(OpaqueFunction(function=find_map_file))
 
-    ld.add_action(start_driver_cmd)
+    # ld.add_action(start_driver_cmd)
     ld.add_action(launch_amcl)
     ld.add_action(launch_navigation)
 

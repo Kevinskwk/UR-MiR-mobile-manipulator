@@ -7,7 +7,7 @@ class PoseSubscriberNode : public rclcpp::Node {
 public:
     PoseSubscriberNode() : Node("pose_subscriber_node") {
         aruco_subscriber_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-            "aruco_moveit_poses", 10, std::bind(&PoseSubscriberNode::poseCallback, this, std::placeholders::_1));
+            "moveit_poses", 10, std::bind(&PoseSubscriberNode::poseCallback, this, std::placeholders::_1));
     }
 
     void initializeMoveGroup() {
@@ -22,7 +22,7 @@ private:
 
         // Adjust the z position to be 0.5 meters above the received pose
         auto target_pose = msg->pose; // Copy the received pose
-        target_pose.position.z += 0.5; // Modify the z value
+        // target_pose.position.z += 0.5; // Modify the z value
         
         // Set the target pose
         //move_group_->setPoseTarget(msg->pose);
