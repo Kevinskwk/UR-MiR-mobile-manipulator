@@ -50,3 +50,12 @@ Running python robot interface
 ```bash
 ros2 run vlm_ros_interface robot_interface 
 ```
+
+## Acknowledgement
+
+This repo is based on [UR-MiR-mobile-manipulator](https://github.com/Spartan-Velanjeri/UR-MiR-mobile-manipulator)
+
+Borrowing packages from:
+
+- [IFRA_LinkAttacher](https://github.com/IFRA-Cranfield/IFRA_LinkAttacher) for vacuum gripper link attacher
+- [gazebo_models_worlds_collection](https://github.com/leonhartyao/gazebo_models_worlds_collection) for office world and gazebo assets
